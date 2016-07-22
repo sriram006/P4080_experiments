@@ -1,0 +1,20 @@
+"./Sources/pa_exception.o"
+"./Sources/main.o"
+"./Sources/interrupt.o"
+"./Sources/__start_e500mc_crt0.o"
+-nostartfiles
+-static
+-L"C:/Users/Administrator/Desktop/codeWarrior_workspace/eight_cores_test-core04/Lib"
+-e __start
+-Xlinker
+--start-group
+-Xlinker
+-lc
+-Xlinker
+-lsyscall
+-Xlinker
+"C:/Users/Administrator/Desktop/codeWarrior_workspace/eight_cores_test-core04/Lib/UART1_P4080DS.eabi.UC.a"
+-Xlinker
+--end-group
+-T
+"C:/Users/Administrator/Desktop/codeWarrior_workspace/eight_cores_test-core04/LCF/P4080DS_gcc-eabi_core4.lcf"

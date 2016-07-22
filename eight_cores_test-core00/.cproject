@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?>
+
+<cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993" moduleId="org.eclipse.cdt.core.settings" name="RAM">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.managedbuilder.core.ManagedBuildManager" point="org.eclipse.cdt.core.ScannerInfoProvider"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.LltErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.AsmErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.IcodeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.CobjErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.LnkErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.MwfeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="elf" artifactName="eight_cores_test-core00" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" buildReferences="true" buildReferencingConfigurations="false" cleanCommand="&quot;${system:ECLIPSE_HOME}/../gnu/bin/rm&quot; -f" description="" errorParsers="org.eclipse.cdt.core.GmakeErrorParser;com.freescale.core.ide.cdt.errorParsers.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser;com.freescale.core.ide.cdt.errorParsers.MwfeErrorParser;com.freescale.core.ide.cdt.errorParsers.LnkErrorParser;com.freescale.core.ide.cdt.errorParsers.AsmErrorParser;com.freescale.core.ide.cdt.errorParsers.CobjErrorParser;com.freescale.core.ide.cdt.errorParsers.IcodeErrorParser;com.freescale.core.ide.cdt.errorParsers.LltErrorParser" id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993" isPrebuildInvalidatingBuild="false" name="RAM" parent="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug" produceBuildErrorsWithMissingReferences="true">
+					<folderInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993." name="/" resourcePath="">
+						<toolChain id="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.debug.1481371841" name="PowerPC EABI e500mc C ToolChain Debug" superClass="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.debug">
+							<option id="com.freescale.pa.cdt.gcc.toolchain.sharedoption.arch.486855536" name="Architecture" superClass="com.freescale.pa.cdt.gcc.toolchain.sharedoption.arch" value="com.freescale.pa.cdt.gcc.toolchain.sharedoption.arch.e500mc" valueType="enumerated"/>
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="com.freescale.pa.cdt.gcc.toolchain.targetPlatform1.2014266670" superClass="com.freescale.pa.cdt.gcc.toolchain.targetPlatform1"/>
+							<builder buildPath="${ProjDirPath}/RAM" id="com.freescale.pa.cdt.gcc.builder.eabi.e500mc.app.debug.966374876" keepEnvironmentInBuildfile="false" name="PowerPC EABI e500mc Debug Builder" parallelBuildWorkspaceOn="true" parallelizationNumber="-1" superClass="com.freescale.pa.cdt.gcc.builder.eabi.e500mc.app.debug"/>
+							<tool id="com.freescale.pa.cdt.gcc.linker.eabi.e500mc.app.debug.598197543" name="PowerPC EABI e500mc C Linker" superClass="com.freescale.pa.cdt.gcc.linker.eabi.e500mc.app.debug">
+								<option id="gnu.c.link.option.paths.1384919029" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Lib&quot;"/>
+								</option>
+								<option id="gnu.c.link.option.noshared.2019388101" name="No shared libraries (-static)" superClass="gnu.c.link.option.noshared" value="true" valueType="boolean"/>
+								<option id="gnu.c.link.option.nostart.1788377611" name="Do not use standard start files (-nostartfiles)" superClass="gnu.c.link.option.nostart" value="true" valueType="boolean"/>
+								<option id="gnu.c.link.option.ldflags.1848557366" name="Linker flags" superClass="gnu.c.link.option.ldflags" value="-e __start" valueType="string"/>
+								<option id="gnu.c.link.option.other.35895077" name="Other options (-Xlinker [option])" superClass="gnu.c.link.option.other" valueType="stringList">
+									<listOptionValue builtIn="false" value="--start-group"/>
+									<listOptionValue builtIn="false" value="-lc "/>
+									<listOptionValue builtIn="false" value="-lsyscall "/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Lib/UART1_P4080DS.eabi.UC.a&quot;"/>
+									<listOptionValue builtIn="false" value="--end-group"/>
+								</option>
+								<option id="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.linker.lcf.957042013" name="LCF File" superClass="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.linker.lcf" value="${ProjDirPath}/LCF/P4080DS_gcc-eabi_core0.lcf" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.2007123567" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.1840582384" name="PowerPC EABI e500mc C Compiler" superClass="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug">
+								<option id="gnu.c.compiler.option.optimization.level.1537310501" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.misc.other.476904724" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -mbig-endian -fno-builtin -fomit-frame-pointer -Wno-unknown-pragmas -fdebug-unwind-tables" valueType="string"/>
+								<inputType id="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.725241425" superClass="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc.257666238" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc"/>
+							</tool>
+							<tool id="com.freescale.pa.cdt.gcc.assembler.eabi.e500mc.app.debug.557329146" name="PowerPC EABI e500mc Assembler" superClass="com.freescale.pa.cdt.gcc.assembler.eabi.e500mc.app.debug">
+								<option id="gnu.both.asm.option.flags.446058227" name="Assembler flags" superClass="gnu.both.asm.option.flags" value="-g" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.411920787" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="com.freescale.pa.cdt.gcc.preprocessor.eabi.e500mc.app.debug.1665390397" name="PowerPC EABI e500mc Preprocessor" superClass="com.freescale.pa.cdt.gcc.preprocessor.eabi.e500mc.app.debug"/>
+							<tool id="com.freescale.pa.cdt.gcc.disassembler.eabi.e500mc.app.debug.944019844" name="PowerPC EABI e500mc Disassembler" superClass="com.freescale.pa.cdt.gcc.disassembler.eabi.e500mc.app.debug"/>
+						</toolChain>
+					</folderInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.P4080DS_eabi_README.txt" name="P4080DS_eabi_README.txt" rcbsApplicability="disable" resourcePath="P4080DS_eabi_README.txt" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.Lib/libconsole.a" name="libconsole.a" rcbsApplicability="disable" resourcePath="Lib/libconsole.a" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.Lib/UART2_P4080DS.eabi.UC.a" name="UART2_P4080DS.eabi.UC.a" rcbsApplicability="disable" resourcePath="Lib/UART2_P4080DS.eabi.UC.a" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.CFG/P4080DS_cacheon.mem" name="P4080DS_cacheon.mem" rcbsApplicability="disable" resourcePath="CFG/P4080DS_cacheon.mem" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.CFG/P4080DS_init_ROM.tcl" name="P4080DS_init_ROM.tcl" rcbsApplicability="disable" resourcePath="CFG/P4080DS_init_ROM.tcl" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.Sources/main_SRAM.c" name="main_SRAM.c" rcbsApplicability="disable" resourcePath="Sources/main_SRAM.c" toolsToInvoke="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.1840582384.1921429454">
+						<tool id="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.1840582384.1921429454" name="PowerPC EABI e500mc C Compiler" superClass="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.1840582384">
+							<inputType id="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.523978173" superClass="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc.940725815" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.Sources/interrupt_e500mc_SRAM.c" name="interrupt_e500mc_SRAM.c" rcbsApplicability="disable" resourcePath="Sources/interrupt_e500mc_SRAM.c" toolsToInvoke="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.1840582384.1711766499">
+						<tool id="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.1840582384.1711766499" name="PowerPC EABI e500mc C Compiler" superClass="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.1840582384">
+							<inputType id="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.1280772038" superClass="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc.2028469" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.Sources/reset.asm" name="reset.asm" rcbsApplicability="disable" resourcePath="Sources/reset.asm" toolsToInvoke="com.freescale.pa.cdt.gcc.assembler.eabi.e500mc.app.debug.557329146.2138831192">
+						<tool id="com.freescale.pa.cdt.gcc.assembler.eabi.e500mc.app.debug.557329146.2138831192" name="PowerPC EABI e500mc Assembler" superClass="com.freescale.pa.cdt.gcc.assembler.eabi.e500mc.app.debug.557329146">
+							<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1306771793" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.Sources/P4080DS_init.c" name="P4080DS_init.c" rcbsApplicability="disable" resourcePath="Sources/P4080DS_init.c" toolsToInvoke="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.1840582384.1811585062">
+						<tool id="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.1840582384.1811585062" name="PowerPC EABI e500mc C Compiler" superClass="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.1840582384">
+							<inputType id="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.2123417476" superClass="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc.577096261" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.LCF/e500mc_gcc-eabi_SMP_SRAM.lcf" name="e500mc_gcc-eabi_SMP_SRAM.lcf" rcbsApplicability="disable" resourcePath="LCF/e500mc_gcc-eabi_SMP_SRAM.lcf" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.LCF/e500mc_gcc-eabi_SRAM.lcf" name="e500mc_gcc-eabi_SRAM.lcf" rcbsApplicability="disable" resourcePath="LCF/e500mc_gcc-eabi_SRAM.lcf" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.LCF/P4080DS_gcc-eabi_ROM.lcf" name="P4080DS_gcc-eabi_ROM.lcf" rcbsApplicability="disable" resourcePath="LCF/P4080DS_gcc-eabi_ROM.lcf" toolsToInvoke=""/>
+					<sourceEntries>
+						<entry excluding="P4080DS_eabi_README.txt|Sources/main_SRAM.c|Sources/reset.asm|LCF/P4080DS_gcc-eabi_ROM.lcf|Lib/libconsole.a|LCF/e500mc_gcc-eabi_SMP_SRAM.lcf|Lib/UART2_P4080DS.eabi.UC.a|Sources/P4080DS_init.c|Sources/interrupt_e500mc_SRAM.c|LCF/e500mc_gcc-eabi_SRAM.lcf|CFG/P4080DS_cacheon.mem|CFG/P4080DS_init_ROM.tcl" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505" moduleId="org.eclipse.cdt.core.settings" name="SRAM">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.managedbuilder.core.ManagedBuildManager" point="org.eclipse.cdt.core.ScannerInfoProvider"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.LltErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.AsmErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.IcodeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.CobjErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.LnkErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.MwfeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="elf" artifactName="eight_cores_test-core00" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="&quot;${system:ECLIPSE_HOME}/../gnu/bin/rm&quot; -f" description="" errorParsers="org.eclipse.cdt.core.GmakeErrorParser;com.freescale.core.ide.cdt.errorParsers.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser;com.freescale.core.ide.cdt.errorParsers.MwfeErrorParser;com.freescale.core.ide.cdt.errorParsers.LnkErrorParser;com.freescale.core.ide.cdt.errorParsers.AsmErrorParser;com.freescale.core.ide.cdt.errorParsers.CobjErrorParser;com.freescale.core.ide.cdt.errorParsers.IcodeErrorParser;com.freescale.core.ide.cdt.errorParsers.LltErrorParser" id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505" isPrebuildInvalidatingBuild="false" name="SRAM" parent="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug">
+					<folderInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505." name="/" resourcePath="">
+						<toolChain id="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.debug.222401493" name="PowerPC EABI e500mc C ToolChain Debug" superClass="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.debug">
+							<option id="com.freescale.pa.cdt.gcc.toolchain.sharedoption.arch.1949798221" name="Architecture" superClass="com.freescale.pa.cdt.gcc.toolchain.sharedoption.arch" value="com.freescale.pa.cdt.gcc.toolchain.sharedoption.arch.e500mc" valueType="enumerated"/>
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="com.freescale.pa.cdt.gcc.toolchain.targetPlatform1.1491239462" superClass="com.freescale.pa.cdt.gcc.toolchain.targetPlatform1"/>
+							<builder buildPath="${ProjDirPath}/SRAM" id="com.freescale.pa.cdt.gcc.builder.eabi.e500mc.app.debug.866350455" keepEnvironmentInBuildfile="false" name="PowerPC EABI e500mc Debug Builder" parallelBuildWorkspaceOn="true" superClass="com.freescale.pa.cdt.gcc.builder.eabi.e500mc.app.debug"/>
+							<tool id="com.freescale.pa.cdt.gcc.linker.eabi.e500mc.app.debug.2110543626" name="PowerPC EABI e500mc C Linker" superClass="com.freescale.pa.cdt.gcc.linker.eabi.e500mc.app.debug">
+								<option id="gnu.c.link.option.paths.483039271" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Lib&quot;"/>
+								</option>
+								<option id="gnu.c.link.option.noshared.1392611787" name="No shared libraries (-static)" superClass="gnu.c.link.option.noshared" value="true" valueType="boolean"/>
+								<option id="gnu.c.link.option.nostart.1994373088" name="Do not use standard start files (-nostartfiles)" superClass="gnu.c.link.option.nostart" value="true" valueType="boolean"/>
+								<option id="gnu.c.link.option.ldflags.1835552940" name="Linker flags" superClass="gnu.c.link.option.ldflags" value="-e __start" valueType="string"/>
+								<option id="gnu.c.link.option.other.2108539791" name="Other options (-Xlinker [option])" superClass="gnu.c.link.option.other" valueType="stringList">
+									<listOptionValue builtIn="false" value="--start-group"/>
+									<listOptionValue builtIn="false" value="-lc "/>
+									<listOptionValue builtIn="false" value="--end-group"/>
+								</option>
+								<option id="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.linker.lcf.667225797" name="LCF File" superClass="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.linker.lcf" value="${ProjDirPath}/LCF/e500mc_gcc-eabi_SRAM.lcf" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.752898092" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2080919051" name="PowerPC EABI e500mc C Compiler" superClass="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug">
+								<option id="gnu.c.compiler.option.optimization.level.677495166" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.misc.other.1462290676" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -mbig-endian -fno-builtin -fomit-frame-pointer -Wno-unknown-pragmas -fdebug-unwind-tables" valueType="string"/>
+								<inputType id="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.2098318599" superClass="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc.1875953234" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc"/>
+							</tool>
+							<tool id="com.freescale.pa.cdt.gcc.assembler.eabi.e500mc.app.debug.1004070293" name="PowerPC EABI e500mc Assembler" superClass="com.freescale.pa.cdt.gcc.assembler.eabi.e500mc.app.debug">
+								<option id="gnu.both.asm.option.flags.258785601" name="Assembler flags" superClass="gnu.both.asm.option.flags" value="-g" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1638007385" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="com.freescale.pa.cdt.gcc.preprocessor.eabi.e500mc.app.debug.565600506" name="PowerPC EABI e500mc Preprocessor" superClass="com.freescale.pa.cdt.gcc.preprocessor.eabi.e500mc.app.debug"/>
+							<tool id="com.freescale.pa.cdt.gcc.disassembler.eabi.e500mc.app.debug.304362728" name="PowerPC EABI e500mc Disassembler" superClass="com.freescale.pa.cdt.gcc.disassembler.eabi.e500mc.app.debug"/>
+						</toolChain>
+					</folderInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.P4080DS_eabi_README.txt" name="P4080DS_eabi_README.txt" rcbsApplicability="disable" resourcePath="P4080DS_eabi_README.txt" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.Lib/UART1_P4080DS.eabi.UC.a" name="UART1_P4080DS.eabi.UC.a" rcbsApplicability="disable" resourcePath="Lib/UART1_P4080DS.eabi.UC.a" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.Lib/libconsole.a" name="libconsole.a" rcbsApplicability="disable" resourcePath="Lib/libconsole.a" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.Lib/UART2_P4080DS.eabi.UC.a" name="UART2_P4080DS.eabi.UC.a" rcbsApplicability="disable" resourcePath="Lib/UART2_P4080DS.eabi.UC.a" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.CFG/P4080DS_cacheon.mem" name="P4080DS_cacheon.mem" rcbsApplicability="disable" resourcePath="CFG/P4080DS_cacheon.mem" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.CFG/P4080DS_init_core.tcl" name="P4080DS_init_core.tcl" rcbsApplicability="disable" resourcePath="CFG/P4080DS_init_core.tcl" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.CFG/P4080DS_init_ROM.tcl" name="P4080DS_init_ROM.tcl" rcbsApplicability="disable" resourcePath="CFG/P4080DS_init_ROM.tcl" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.Sources/main.c" name="main.c" rcbsApplicability="disable" resourcePath="Sources/main.c" toolsToInvoke="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2080919051.555082205">
+						<tool id="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2080919051.555082205" name="PowerPC EABI e500mc C Compiler" superClass="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2080919051">
+							<inputType id="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.903628738" superClass="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc.2079359896" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.Sources/interrupt.c" name="interrupt.c" rcbsApplicability="disable" resourcePath="Sources/interrupt.c" toolsToInvoke="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2080919051.1179231570">
+						<tool id="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2080919051.1179231570" name="PowerPC EABI e500mc C Compiler" superClass="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2080919051">
+							<inputType id="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.1015813036" superClass="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc.650306254" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.Sources/reset.asm" name="reset.asm" rcbsApplicability="disable" resourcePath="Sources/reset.asm" toolsToInvoke="com.freescale.pa.cdt.gcc.assembler.eabi.e500mc.app.debug.1004070293.6815446">
+						<tool id="com.freescale.pa.cdt.gcc.assembler.eabi.e500mc.app.debug.1004070293.6815446" name="PowerPC EABI e500mc Assembler" superClass="com.freescale.pa.cdt.gcc.assembler.eabi.e500mc.app.debug.1004070293">
+							<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1612490976" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.Sources/P4080DS_init.c" name="P4080DS_init.c" rcbsApplicability="disable" resourcePath="Sources/P4080DS_init.c" toolsToInvoke="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2080919051.172280886">
+						<tool id="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2080919051.172280886" name="PowerPC EABI e500mc C Compiler" superClass="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2080919051">
+							<inputType id="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.1175416242" superClass="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc.1958990957" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.LCF/e500mc_gcc-eabi_SMP_SRAM.lcf" name="e500mc_gcc-eabi_SMP_SRAM.lcf" rcbsApplicability="disable" resourcePath="LCF/e500mc_gcc-eabi_SMP_SRAM.lcf" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.LCF/P4080DS_gcc-eabi_core0.lcf" name="P4080DS_gcc-eabi_core0.lcf" rcbsApplicability="disable" resourcePath="LCF/P4080DS_gcc-eabi_core0.lcf" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.LCF/P4080DS_gcc-eabi_ROM.lcf" name="P4080DS_gcc-eabi_ROM.lcf" rcbsApplicability="disable" resourcePath="LCF/P4080DS_gcc-eabi_ROM.lcf" toolsToInvoke=""/>
+					<sourceEntries>
+						<entry excluding="P4080DS_eabi_README.txt|Lib/UART1_P4080DS.eabi.UC.a|Sources/reset.asm|LCF/P4080DS_gcc-eabi_ROM.lcf|CFG/P4080DS_init_core.tcl|Lib/libconsole.a|LCF/e500mc_gcc-eabi_SMP_SRAM.lcf|Sources/interrupt.c|LCF/P4080DS_gcc-eabi_core0.lcf|Lib/UART2_P4080DS.eabi.UC.a|Sources/P4080DS_init.c|Sources/main.c|CFG/P4080DS_cacheon.mem|CFG/P4080DS_init_ROM.tcl" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042" moduleId="org.eclipse.cdt.core.settings" name="ROM">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.managedbuilder.core.ManagedBuildManager" point="org.eclipse.cdt.core.ScannerInfoProvider"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.LltErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.AsmErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.IcodeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.CobjErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.LnkErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="com.freescale.core.ide.cdt.errorParsers.MwfeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="elf" artifactName="eight_cores_test-core00" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="&quot;${system:ECLIPSE_HOME}/../gnu/bin/rm&quot; -f" description="" errorParsers="org.eclipse.cdt.core.GmakeErrorParser;com.freescale.core.ide.cdt.errorParsers.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser;com.freescale.core.ide.cdt.errorParsers.MwfeErrorParser;com.freescale.core.ide.cdt.errorParsers.LnkErrorParser;com.freescale.core.ide.cdt.errorParsers.AsmErrorParser;com.freescale.core.ide.cdt.errorParsers.CobjErrorParser;com.freescale.core.ide.cdt.errorParsers.IcodeErrorParser;com.freescale.core.ide.cdt.errorParsers.LltErrorParser" id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042" isPrebuildInvalidatingBuild="false" name="ROM" parent="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug">
+					<folderInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042." name="/" resourcePath="">
+						<toolChain id="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.debug.1262391673" name="PowerPC EABI e500mc C ToolChain Debug" superClass="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.debug">
+							<option id="com.freescale.pa.cdt.gcc.toolchain.sharedoption.arch.929034683" name="Architecture" superClass="com.freescale.pa.cdt.gcc.toolchain.sharedoption.arch" value="com.freescale.pa.cdt.gcc.toolchain.sharedoption.arch.e500mc" valueType="enumerated"/>
+							<targetPlatform binaryParser="org.eclipse.cdt.core.ELF" id="com.freescale.pa.cdt.gcc.toolchain.targetPlatform1.81670721" superClass="com.freescale.pa.cdt.gcc.toolchain.targetPlatform1"/>
+							<builder buildPath="${ProjDirPath}/ROM" id="com.freescale.pa.cdt.gcc.builder.eabi.e500mc.app.debug.1544592497" keepEnvironmentInBuildfile="false" name="PowerPC EABI e500mc Debug Builder" parallelBuildWorkspaceOn="true" superClass="com.freescale.pa.cdt.gcc.builder.eabi.e500mc.app.debug"/>
+							<tool id="com.freescale.pa.cdt.gcc.linker.eabi.e500mc.app.debug.642460241" name="PowerPC EABI e500mc C Linker" superClass="com.freescale.pa.cdt.gcc.linker.eabi.e500mc.app.debug">
+								<option id="gnu.c.link.option.paths.276680271" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Lib&quot;"/>
+								</option>
+								<option id="gnu.c.link.option.noshared.1802358891" name="No shared libraries (-static)" superClass="gnu.c.link.option.noshared" value="true" valueType="boolean"/>
+								<option id="gnu.c.link.option.nostart.1511786196" name="Do not use standard start files (-nostartfiles)" superClass="gnu.c.link.option.nostart" value="true" valueType="boolean"/>
+								<option id="gnu.c.link.option.ldflags.999600036" name="Linker flags" superClass="gnu.c.link.option.ldflags" value="-e __reset" valueType="string"/>
+								<option id="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.linker.lcf.1101516002" name="LCF File" superClass="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.linker.lcf" value="${ProjDirPath}/LCF/P4080DS_gcc-eabi_ROM.lcf" valueType="string"/>
+								<option id="gnu.c.link.option.other.276544960" name="Other options (-Xlinker [option])" superClass="gnu.c.link.option.other" valueType="stringList">
+									<listOptionValue builtIn="false" value="--start-group"/>
+									<listOptionValue builtIn="false" value="-lc "/>
+									<listOptionValue builtIn="false" value="-lsyscall "/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/Lib/UART1_P4080DS.eabi.UC.a&quot;"/>
+									<listOptionValue builtIn="false" value="--end-group"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.938004202" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2033338932" name="PowerPC EABI e500mc C Compiler" superClass="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug">
+								<option id="gnu.c.compiler.option.optimization.level.1116528490" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" value="gnu.c.optimization.level.none" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.misc.other.1716912331" name="Other flags" superClass="gnu.c.compiler.option.misc.other" value="-c -mbig-endian -fno-builtin -fomit-frame-pointer -Wno-unknown-pragmas -fdebug-unwind-tables" valueType="string"/>
+								<option id="gnu.c.compiler.option.debugging.other.488609580" name="Other debugging flags" superClass="gnu.c.compiler.option.debugging.other" value="-DROMTARGET" valueType="string"/>
+								<inputType id="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.35880444" superClass="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc.1551882660" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc"/>
+							</tool>
+							<tool id="com.freescale.pa.cdt.gcc.assembler.eabi.e500mc.app.debug.901060855" name="PowerPC EABI e500mc Assembler" superClass="com.freescale.pa.cdt.gcc.assembler.eabi.e500mc.app.debug">
+								<option id="gnu.both.asm.option.flags.1874839001" name="Assembler flags" superClass="gnu.both.asm.option.flags" value="-g" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.961773065" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="com.freescale.pa.cdt.gcc.preprocessor.eabi.e500mc.app.debug.1774936252" name="PowerPC EABI e500mc Preprocessor" superClass="com.freescale.pa.cdt.gcc.preprocessor.eabi.e500mc.app.debug"/>
+							<tool id="com.freescale.pa.cdt.gcc.disassembler.eabi.e500mc.app.debug.845163787" name="PowerPC EABI e500mc Disassembler" superClass="com.freescale.pa.cdt.gcc.disassembler.eabi.e500mc.app.debug"/>
+						</toolChain>
+					</folderInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.P4080DS_eabi_README.txt" name="P4080DS_eabi_README.txt" rcbsApplicability="disable" resourcePath="P4080DS_eabi_README.txt" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.Lib/libconsole.a" name="libconsole.a" rcbsApplicability="disable" resourcePath="Lib/libconsole.a" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.Lib/UART2_P4080DS.eabi.UC.a" name="UART2_P4080DS.eabi.UC.a" rcbsApplicability="disable" resourcePath="Lib/UART2_P4080DS.eabi.UC.a" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.CFG/P4080DS_init_core_cacheon.tcl" name="P4080DS_init_core_cacheon.tcl" rcbsApplicability="disable" resourcePath="CFG/P4080DS_init_core_cacheon.tcl" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.CFG/P4080DS_init_sram.tcl" name="P4080DS_init_sram.tcl" rcbsApplicability="disable" resourcePath="CFG/P4080DS_init_sram.tcl" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.CFG/P4080DS_cacheon.mem" name="P4080DS_cacheon.mem" rcbsApplicability="disable" resourcePath="CFG/P4080DS_cacheon.mem" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.CFG/P4080DS_init_core.tcl" name="P4080DS_init_core.tcl" rcbsApplicability="disable" resourcePath="CFG/P4080DS_init_core.tcl" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.Sources/main_SRAM.c" name="main_SRAM.c" rcbsApplicability="disable" resourcePath="Sources/main_SRAM.c" toolsToInvoke="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2033338932.1042730798">
+						<tool id="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2033338932.1042730798" name="PowerPC EABI e500mc C Compiler" superClass="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2033338932">
+							<inputType id="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.1585455008" superClass="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc.1018358804" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.Sources/interrupt_e500mc_SRAM.c" name="interrupt_e500mc_SRAM.c" rcbsApplicability="disable" resourcePath="Sources/interrupt_e500mc_SRAM.c" toolsToInvoke="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2033338932.671904913">
+						<tool id="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2033338932.671904913" name="PowerPC EABI e500mc C Compiler" superClass="com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2033338932">
+							<inputType id="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.519501091" superClass="com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input"/>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc.2034518670" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.asmpreproc"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.LCF/e500mc_gcc-eabi_SMP_SRAM.lcf" name="e500mc_gcc-eabi_SMP_SRAM.lcf" rcbsApplicability="disable" resourcePath="LCF/e500mc_gcc-eabi_SMP_SRAM.lcf" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.LCF/e500mc_gcc-eabi_SRAM.lcf" name="e500mc_gcc-eabi_SRAM.lcf" rcbsApplicability="disable" resourcePath="LCF/e500mc_gcc-eabi_SRAM.lcf" toolsToInvoke=""/>
+					<fileInfo id="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.LCF/P4080DS_gcc-eabi_core0.lcf" name="P4080DS_gcc-eabi_core0.lcf" rcbsApplicability="disable" resourcePath="LCF/P4080DS_gcc-eabi_core0.lcf" toolsToInvoke=""/>
+					<sourceEntries>
+						<entry excluding="P4080DS_eabi_README.txt|Sources/main_SRAM.c|CFG/P4080DS_init_core.tcl|Lib/libconsole.a|LCF/e500mc_gcc-eabi_SMP_SRAM.lcf|LCF/P4080DS_gcc-eabi_core0.lcf|Lib/UART2_P4080DS.eabi.UC.a|Sources/interrupt_e500mc_SRAM.c|CFG/P4080DS_init_sram.tcl|CFG/P4080DS_init_core_cacheon.tcl|LCF/e500mc_gcc-eabi_SRAM.lcf|CFG/P4080DS_cacheon.mem" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="eight_cores_test-core00.com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.projectType.1523616844" name="PowerPC EABI e500mc C Project" projectType="com.freescale.pa.cdt.gcc.toolchain.eabi.e500mc.projectType"/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.pathentry"/>
+	<storageModule moduleId="refreshScope" versionNumber="1">
+		<resource resourceType="PROJECT" workspacePath="/eight_cores_test-core00"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505;com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1292455505.;com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2080919051;com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.2098318599">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.freescale.pa.cdt.toolchain.eabi.e500mc.discoveryProfile"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042;com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.283497042.;com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.2033338932;com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.35880444">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.freescale.pa.cdt.toolchain.eabi.e500mc.discoveryProfile"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993;com.freescale.pa.cdt.gcc.configuration.eabi.e500mc.debug.1230459993.;com.freescale.pa.cdt.gcc.compiler.eabi.e500mc.app.debug.1840582384;com.freescale.pa.cdt.gcc.toolchain.c.compiler.eabi.e500mc.input.725241425">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.freescale.pa.cdt.toolchain.eabi.e500mc.discoveryProfile"/>
+			<profile id="com.freescale.pa.cdt.toolchain.eabi.e500mc.discoveryProfile">
+				<buildOutputProvider>
+					<openAction enabled="true" filePath=""/>
+					<parser enabled="false"/>
+				</buildOutputProvider>
+				<scannerInfoProvider id="specsFile">
+					<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="${PAGccEabiE500mcDir}/powerpc-eabi-gcc" useDefault="true"/>
+					<parser enabled="true"/>
+				</scannerInfoProvider>
+			</profile>
+			<profile id="com.freescale.pa.cdt.toolchain.linux.discoveryProfile">
+				<buildOutputProvider>
+					<openAction enabled="true" filePath=""/>
+					<parser enabled="false"/>
+				</buildOutputProvider>
+				<scannerInfoProvider id="specsFile">
+					<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="${PAGccLinuxDir}/powerpc-linux-gnu-gcc" useDefault="true"/>
+					<parser enabled="true"/>
+				</scannerInfoProvider>
+			</profile>
+		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+</cproject>

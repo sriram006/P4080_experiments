@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.freescale.pfa.core.launch.launchConfigType">
+<stringAttribute key="ccs_hostname" value="127.0.0.1"/>
+<booleanAttribute key="ccs_is_remote" value="false"/>
+<intAttribute key="ccs_port" value="41475"/>
+<stringAttribute key="cdde_hostname" value="127.0.0.1"/>
+<booleanAttribute key="cdde_is_remote" value="false"/>
+<intAttribute key="cdde_port" value="1534"/>
+<intAttribute key="jtag_clock" value="4000"/>
+<booleanAttribute key="org.eclipse.debug.ui.ATTR_REDIRECT_TO_SERVER_SOCKET" value="false"/>
+<booleanAttribute key="org.eclipse.debug.ui.ATTR_REDIRECT_TO_SOCKET" value="false"/>
+<stringAttribute key="org.eclipse.debug.ui.ATTR_REDIRECT_TO_SOCKET_HOST" value=""/>
+<stringAttribute key="org.eclipse.debug.ui.ATTR_REDIRECT_TO_SOCKET_PORT" value=""/>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.profile"/>
+</listAttribute>
+<stringAttribute key="pfa_conn_type_attr" value="pfa_conn_etap"/>
+<booleanAttribute key="pfa_cwtap_usb_selected" value="false"/>
+<stringAttribute key="pfa_dbg_conn_attr" value="pfa_jtag_o_aur"/>
+<booleanAttribute key="pfa_enable_realtime" value="false"/>
+<stringAttribute key="pfa_hostname_ip_attr" value="192.168.1.102"/>
+<booleanAttribute key="pfa_log_target_accesses" value="false"/>
+<intAttribute key="pfa_num_samples_auto_attr" value="500"/>
+<intAttribute key="pfa_num_samples_manual_attr" value="100"/>
+<stringAttribute key="pfa_proc_type_attr" value="P4080"/>
+<intAttribute key="pfa_realtime_display_size" value="300"/>
+<booleanAttribute key="pfa_reports_auto_display" value="true"/>
+<booleanAttribute key="pfa_reset_counters" value="false"/>
+<booleanAttribute key="pfa_sample_values_absolute" value="true"/>
+<booleanAttribute key="pfa_sampling_start_is_auto_attr" value="false"/>
+<booleanAttribute key="pfa_sampling_stop_is_auto_attr" value="true"/>
+<listAttribute key="pfa_scenario_configure_counters_list_attr">
+<listEntry value="true"/>
+</listAttribute>
+<listAttribute key="pfa_scenario_description_list_attr">
+<listEntry value=""/>
+</listAttribute>
+<listAttribute key="pfa_scenario_enabled_list_attr">
+<listEntry value="true"/>
+</listAttribute>
+<listAttribute key="pfa_scenario_id_list_attr">
+<listEntry value="CustomScenariob5458282-3aaa-4f39-85c7-c46ca0cad443"/>
+</listAttribute>
+<listAttribute key="pfa_scenario_name_list_attr">
+<listEntry value="CustomScenario0"/>
+</listAttribute>
+<booleanAttribute key="pfa_scenario_show_advanced_options_attr" value="false"/>
+<booleanAttribute key="pfa_stop_on_failure" value="true"/>
+<stringAttribute key="pfa_usb_serial_attr" value="192.168.1.102"/>
+<booleanAttribute key="pfa_usb_serial_select_attr" value="true"/>
+</launchConfiguration>

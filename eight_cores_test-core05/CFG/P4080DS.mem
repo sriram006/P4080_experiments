@@ -1,0 +1,407 @@
+////////////////////////////////////////////////////////////////////
+//   Memory configuration file for P4080DS
+////////////////////////////////////////////////////////////////////
+//
+//	
+//   Memory Map
+//
+//   0x00000000  0x7FFFFFFF  DDR        2G
+//   0x80000000  0x9FFFFFFF  PEX1       512M
+//   0xA0000000  0xBFFFFFFF  PEX2       512M
+//   0xC0000000  0xDFFFFFFF  PEX3       512M
+//   0xE0000000	 0xEFFFFFFF  LocalBus   256M		 
+//   0xF4000000	 0xF41FFFFF  BMAN       2M
+//   0xF4200000	 0xF43FFFFF  QMAN       2M
+//   0xF8000000  0xF800FFFF  PEX1 I/O   64K
+//   0xF8010000  0xF801FFFF  PEX2 I/O   64K
+//   0xF8020000  0xF802FFFF  PEX3 I/O   64K
+//   0xFE000000  0xFEFFFFFF  CCSR Space 16M
+//   0xFFDF0000  0xFFDF0FFF  PIXIS      4K
+//   0xFFFFF000  0xFFFFFFFF  Boot Page  4k  (valid only after reset)
+//
+//
+////////////////////////////////////////////////////////////////////
+
+
+reservedchar 0xBA
+
+
+// Translate virtual addresses to corresponding physical cacheable (p:) or cache-inhibited (i:) addresses
+
+translate v:0x00000000 i:0x00000000 0x80000000
+translate v:0x80000000 i:0x80000000 0x60000000
+translate v:0xE0000000 i:0xE0000000 0x10000000
+translate v:0xF4000000 i:0xF4000000 0x00100000
+translate v:0xF4100000 i:0xF4100000 0x00100000
+translate v:0xF4200000 i:0xF4200000 0x00100000
+translate v:0xF4300000 i:0xF4300000 0x00100000
+translate v:0xF8000000 i:0xF8000000 0x00030000
+translate v:0xFE000000 i:0xFE000000 0x01000000
+translate v:0xFFDF0000 i:0xFFDF0000 0x00001000
+translate v:0xFFFFF000 i:0xFFFFF000 0x00001000
+
+// Request that elf file downloaded to be subjected to address translation.
+AutoEnableTranslations	true
+
+
+// Mark as reserved the gaps between the above valid memory ranges
+
+reserved v:0xF0000000 v:0xF3FFFFFF
+reserved p:0xF0000000 p:0xF3FFFFFF
+reserved i:0xF0000000 i:0xF3FFFFFF
+
+reserved v:0xF4400000 v:0xF7FFFFFF
+reserved p:0xF4400000 p:0xF7FFFFFF
+reserved i:0xF4400000 i:0xF7FFFFFF
+
+reserved v:0xF8030000 v:0xFDFFFFFF
+reserved p:0xF8030000 p:0xFDFFFFFF
+reserved i:0xF8030000 i:0xFDFFFFFF
+
+reserved v:0xFF000000 v:0XFFDEFFFF
+reserved p:0xFF000000 p:0XFFDEFFFF
+reserved i:0xFF000000 i:0XFFDEFFFF
+
+reserved v:0xFFDF1000 v:0xFFFFEFFF
+reserved p:0xFFDF1000 p:0xFFFFEFFF
+reserved i:0xFFDF1000 i:0xFFFFEFFF
+
+// Below are some valid memory ranges defined in MMU.
+// However, because the default init file does not fully initializes all the underlying controllers (eg - PEX),
+// we disallow the debugger accessing these ranges
+// If you need to prevent the debugger accessing the other valid ranges, 
+// just uncomment the corresponding lines
+
+// PromJet 
+// reserved v:0xE0000000 v:0xE7FFFFFF
+// reserved p:0xE0000000 p:0xE7FFFFFF
+// reserved i:0xE0000000 i:0xE7FFFFFF
+
+// PEX1
+reserved v:0x80000000 v:0x9FFFFFFF
+reserved p:0x80000000 p:0x9FFFFFFF
+reserved i:0x80000000 i:0x9FFFFFFF
+
+// PEX2
+reserved v:0xA0000000 v:0xBFFFFFFF
+reserved p:0xA0000000 p:0xBFFFFFFF
+reserved i:0xA0000000 i:0xBFFFFFFF
+
+// PEX3
+reserved v:0xC0000000 v:0xDFFFFFFF
+reserved p:0xC0000000 p:0xDFFFFFFF
+reserved i:0xC0000000 i:0xDFFFFFFF
+
+// PEX1 I/O
+reserved v:0xF8000000 v:0xF800FFFF  
+reserved p:0xF8000000 p:0xF800FFFF  
+reserved i:0xF8000000 i:0xF800FFFF  
+
+// PEX2 I/O
+reserved v:0xF8010000 v:0xF801FFFF  
+reserved p:0xF8010000 p:0xF801FFFF  
+reserved i:0xF8010000 i:0xF801FFFF  
+
+// PEX3 I/O
+reserved v:0xF8020000 v:0xF802FFFF  
+reserved p:0xF8020000 p:0xF802FFFF  
+reserved i:0xF8020000 i:0xF802FFFF  
+
+// BMAN
+// reserved v:0xF4000000 v:0xF41FFFFF
+// reserved p:0xF4000000 p:0xF41FFFFF
+// reserved i:0xF4000000 i:0xF41FFFFF
+
+// QMAN
+// reserved v:0xF4200000 v:0xF43FFFFF
+// reserved p:0xF4200000 p:0xF43FFFFF
+// reserved i:0xF4200000 i:0xF43FFFFF
+
+// Boot Page (this is valid just after reset, but not after running the
+// initialization script or u-boot which map the entire flash in another range
+// reserved v:0xFFFFF000 v:0xFFFFFFFF
+// reserved p:0xFFFFF000 p:0xFFFFFFFF
+// reserved i:0xFFFFF000 i:0xFFFFFFFF
+
+
+// Set the access size to 1 byte for PIXIS range
+// (prevents problems with Simics simulator)
+
+range    v:0xFFDF0000 v:0xFFDF0FFF 1 ReadWrite
+range    p:0xFFDF0000 p:0xFFDF0FFF 1 ReadWrite
+range    i:0xFFDF0000 i:0xFFDF0FFF 1 ReadWrite
+
+
+// Mark as reserved the ranges between devices in CCSR space.
+// There is a silicon bug (supposed to be fixed in rev 2) that causes
+// a machine check exception when accessing CCSR space between valid devices. 
+// Please note that the CCSR space is assumed to be at 0xFE000000 address. Update if different
+
+reserved v:0xFE001000 v:0xFE007FFF
+reserved v:0xFE00A000 v:0xFE00FFFF
+reserved v:0xFE012000 v:0xFE017FFF
+reserved v:0xFE019000 v:0xFE01FFFF
+reserved v:0xFE030000 v:0xFE03FFFF
+reserved v:0xFE070000 v:0xFE0BFFFF
+reserved v:0xFE0E3000 v:0xFE0E7FFF
+reserved v:0xFE0E9000 v:0xFE0E9FFF
+reserved v:0xFE0EB000 v:0xFE0FFFFF
+reserved v:0xFE102000 v:0xFE10FFFF
+reserved v:0xFE111000 v:0xFE113FFF
+reserved v:0xFE115000 v:0xFE117FFF
+reserved v:0xFE11A000 v:0xFE11BFFF
+reserved v:0xFE11E000 v:0xFE123FFF
+reserved v:0xFE125000 v:0xFE12FFFF
+reserved v:0xFE131000 v:0xFE137FFF
+reserved v:0xFE139000 v:0xFE1FFFFF
+reserved v:0xFE203000 v:0xFE20FFFF
+reserved v:0xFE212000 v:0xFE2FFFFF
+reserved v:0xFE310000 v:0xFE313FFF
+reserved v:0xFE315000 v:0xFE315FFF
+reserved v:0xFE317000 v:0xFE317FFF
+reserved v:0xFE319000 v:0xFE319FFF
+reserved v:0xFE31B000 v:0xFE3FFFFF
+reserved v:0xFE600000 v:0xFEFFFFFF
+
+reserved p:0xFE001000 p:0xFE007FFF
+reserved p:0xFE00A000 p:0xFE00FFFF
+reserved p:0xFE012000 p:0xFE017FFF
+reserved p:0xFE019000 p:0xFE01FFFF
+reserved p:0xFE030000 p:0xFE03FFFF
+reserved p:0xFE070000 p:0xFE0BFFFF
+reserved p:0xFE0E3000 p:0xFE0E7FFF
+reserved p:0xFE0E9000 p:0xFE0E9FFF
+reserved p:0xFE0EB000 p:0xFE0FFFFF
+reserved p:0xFE102000 p:0xFE10FFFF
+reserved p:0xFE111000 p:0xFE113FFF
+reserved p:0xFE115000 p:0xFE117FFF
+reserved p:0xFE11A000 p:0xFE11BFFF
+reserved p:0xFE11E000 p:0xFE123FFF
+reserved p:0xFE125000 p:0xFE12FFFF
+reserved p:0xFE131000 p:0xFE137FFF
+reserved p:0xFE139000 p:0xFE1FFFFF
+reserved p:0xFE203000 p:0xFE20FFFF
+reserved p:0xFE212000 p:0xFE2FFFFF
+reserved p:0xFE310000 p:0xFE313FFF
+reserved p:0xFE315000 p:0xFE315FFF
+reserved p:0xFE317000 p:0xFE317FFF
+reserved p:0xFE319000 p:0xFE319FFF
+reserved p:0xFE31B000 p:0xFE3FFFFF
+reserved p:0xFE600000 p:0xFEFFFFFF
+
+reserved i:0xFE001000 i:0xFE007FFF
+reserved i:0xFE00A000 i:0xFE00FFFF
+reserved i:0xFE012000 i:0xFE017FFF
+reserved i:0xFE019000 i:0xFE01FFFF
+reserved i:0xFE030000 i:0xFE03FFFF
+reserved i:0xFE070000 i:0xFE0BFFFF
+reserved i:0xFE0E3000 i:0xFE0E7FFF
+reserved i:0xFE0E9000 i:0xFE0E9FFF
+reserved i:0xFE0EB000 i:0xFE0FFFFF
+reserved i:0xFE102000 i:0xFE10FFFF
+reserved i:0xFE111000 i:0xFE113FFF
+reserved i:0xFE115000 i:0xFE117FFF
+reserved i:0xFE11A000 i:0xFE11BFFF
+reserved i:0xFE11E000 i:0xFE123FFF
+reserved i:0xFE125000 i:0xFE12FFFF
+reserved i:0xFE131000 i:0xFE137FFF
+reserved i:0xFE139000 i:0xFE1FFFFF
+reserved i:0xFE203000 i:0xFE20FFFF
+reserved i:0xFE212000 i:0xFE2FFFFF
+reserved i:0xFE310000 i:0xFE313FFF
+reserved i:0xFE315000 i:0xFE315FFF
+reserved i:0xFE317000 i:0xFE317FFF
+reserved i:0xFE319000 i:0xFE319FFF
+reserved i:0xFE31B000 i:0xFE3FFFFF
+reserved i:0xFE600000 i:0xFEFFFFFF
+
+// DECO_CCB0/1/2/3/4 are accessible only when direct DECO access
+// has been granted via the DECORR register
+reserved v:0xFE308000 v:0xFE30CFFF
+reserved p:0xFE308000 p:0xFE30CFFF
+reserved i:0xFE308000 i:0xFE30CFFF
+
+// Mark the PBL space as reserved also
+reserved v:0xFE138000 v:0xFE138FFF
+reserved p:0xFE138000 p:0xFE138FFF
+reserved i:0xFE138000 i:0xFE138FFF
+
+// Some reserved ranges in FMAN that cause problems
+
+reserved v:0xFE48130c v:0xFE4813FF
+reserved v:0xFE48230c v:0xFE4823FF
+reserved v:0xFE48330c v:0xFE4833FF
+reserved v:0xFE48430c v:0xFE4843FF
+reserved v:0xFE48530c v:0xFE4853FF
+reserved v:0xFE48630c v:0xFE4863FF
+reserved v:0xFE48730c v:0xFE4873FF
+reserved v:0xFE48830c v:0xFE4883FF
+reserved v:0xFE48930c v:0xFE4893FF
+reserved v:0xFE48A30c v:0xFE48A3FF
+reserved v:0xFE48B30c v:0xFE48B3FF
+reserved v:0xFE48C000 v:0xFE48FFFF
+reserved v:0xFE49030c v:0xFE4903FF
+reserved v:0xFE491000 v:0xFE4A7FFF
+reserved v:0xFE4A830c v:0xFE4A83FF
+reserved v:0xFE4A930c v:0xFE4A93FF
+reserved v:0xFE4AA30c v:0xFE4AA3FF
+reserved v:0xFE4AB30c v:0xFE4AB3FF
+reserved v:0xFE4AC000 v:0xFE4AFFFF
+reserved v:0xFE4B030c v:0xFE4B03FF
+reserved v:0xFE4B1000 v:0xFE4BFFFF
+reserved v:0xFE58130c v:0xFE5813FF
+reserved v:0xFE58230c v:0xFE5823FF
+reserved v:0xFE58330c v:0xFE5833FF
+reserved v:0xFE58430c v:0xFE5843FF
+reserved v:0xFE58530c v:0xFE5853FF
+reserved v:0xFE58630c v:0xFE5863FF
+reserved v:0xFE58730c v:0xFE5873FF
+reserved v:0xFE58830c v:0xFE5883FF
+reserved v:0xFE58930c v:0xFE5893FF
+reserved v:0xFE58A30c v:0xFE58A3FF
+reserved v:0xFE58B30c v:0xFE58B3FF
+reserved v:0xFE58C000 v:0xFE58FFFF
+reserved v:0xFE59030c v:0xFE5903FF
+reserved v:0xFE591000 v:0xFE5A7FFF
+reserved v:0xFE5A830c v:0xFE5A83FF
+reserved v:0xFE5A930c v:0xFE5A93FF
+reserved v:0xFE5AA30c v:0xFE5AA3FF
+reserved v:0xFE5AB30c v:0xFE5AB3FF
+reserved v:0xFE5AC000 v:0xFE5AFFFF
+reserved v:0xFE5B030c v:0xFE5B03FF
+reserved v:0xFE5B1000 v:0xFE5BFFFF
+
+reserved p:0xFE48130c p:0xFE4813FF
+reserved p:0xFE48230c p:0xFE4823FF
+reserved p:0xFE48330c p:0xFE4833FF
+reserved p:0xFE48430c p:0xFE4843FF
+reserved p:0xFE48530c p:0xFE4853FF
+reserved p:0xFE48630c p:0xFE4863FF
+reserved p:0xFE48730c p:0xFE4873FF
+reserved p:0xFE48830c p:0xFE4883FF
+reserved p:0xFE48930c p:0xFE4893FF
+reserved p:0xFE48A30c p:0xFE48A3FF
+reserved p:0xFE48B30c p:0xFE48B3FF
+reserved p:0xFE48C000 p:0xFE48FFFF
+reserved p:0xFE49030c p:0xFE4903FF
+reserved p:0xFE491000 p:0xFE4A7FFF
+reserved p:0xFE4A830c p:0xFE4A83FF
+reserved p:0xFE4A930c p:0xFE4A93FF
+reserved p:0xFE4AA30c p:0xFE4AA3FF
+reserved p:0xFE4AB30c p:0xFE4AB3FF
+reserved p:0xFE4AC000 p:0xFE4AFFFF
+reserved p:0xFE4B030c p:0xFE4B03FF
+reserved p:0xFE4B1000 p:0xFE4BFFFF
+reserved p:0xFE58130c p:0xFE5813FF
+reserved p:0xFE58230c p:0xFE5823FF
+reserved p:0xFE58330c p:0xFE5833FF
+reserved p:0xFE58430c p:0xFE5843FF
+reserved p:0xFE58530c p:0xFE5853FF
+reserved p:0xFE58630c p:0xFE5863FF
+reserved p:0xFE58730c p:0xFE5873FF
+reserved p:0xFE58830c p:0xFE5883FF
+reserved p:0xFE58930c p:0xFE5893FF
+reserved p:0xFE58A30c p:0xFE58A3FF
+reserved p:0xFE58B30c p:0xFE58B3FF
+reserved p:0xFE58C000 p:0xFE58FFFF
+reserved p:0xFE59030c p:0xFE5903FF
+reserved p:0xFE591000 p:0xFE5A7FFF
+reserved p:0xFE5A830c p:0xFE5A83FF
+reserved p:0xFE5A930c p:0xFE5A93FF
+reserved p:0xFE5AA30c p:0xFE5AA3FF
+reserved p:0xFE5AB30c p:0xFE5AB3FF
+reserved p:0xFE5AC000 p:0xFE5AFFFF
+reserved p:0xFE5B030c p:0xFE5B03FF
+reserved p:0xFE5B1000 p:0xFE5BFFFF
+
+reserved i:0xFE48130c i:0xFE4813FF
+reserved i:0xFE48230c i:0xFE4823FF
+reserved i:0xFE48330c i:0xFE4833FF
+reserved i:0xFE48430c i:0xFE4843FF
+reserved i:0xFE48530c i:0xFE4853FF
+reserved i:0xFE48630c i:0xFE4863FF
+reserved i:0xFE48730c i:0xFE4873FF
+reserved i:0xFE48830c i:0xFE4883FF
+reserved i:0xFE48930c i:0xFE4893FF
+reserved i:0xFE48A30c i:0xFE48A3FF
+reserved i:0xFE48B30c i:0xFE48B3FF
+reserved i:0xFE48C000 i:0xFE48FFFF
+reserved i:0xFE49030c i:0xFE4903FF
+reserved i:0xFE491000 i:0xFE4A7FFF
+reserved i:0xFE4A830c i:0xFE4A83FF
+reserved i:0xFE4A930c i:0xFE4A93FF
+reserved i:0xFE4AA30c i:0xFE4AA3FF
+reserved i:0xFE4AB30c i:0xFE4AB3FF
+reserved i:0xFE4AC000 i:0xFE4AFFFF
+reserved i:0xFE4B030c i:0xFE4B03FF
+reserved i:0xFE4B1000 i:0xFE4BFFFF
+reserved i:0xFE58130c i:0xFE5813FF
+reserved i:0xFE58230c i:0xFE5823FF
+reserved i:0xFE58330c i:0xFE5833FF
+reserved i:0xFE58430c i:0xFE5843FF
+reserved i:0xFE58530c i:0xFE5853FF
+reserved i:0xFE58630c i:0xFE5863FF
+reserved i:0xFE58730c i:0xFE5873FF
+reserved i:0xFE58830c i:0xFE5883FF
+reserved i:0xFE58930c i:0xFE5893FF
+reserved i:0xFE58A30c i:0xFE58A3FF
+reserved i:0xFE58B30c i:0xFE58B3FF
+reserved i:0xFE58C000 i:0xFE58FFFF
+reserved i:0xFE59030c i:0xFE5903FF
+reserved i:0xFE591000 i:0xFE5A7FFF
+reserved i:0xFE5A830c i:0xFE5A83FF
+reserved i:0xFE5A930c i:0xFE5A93FF
+reserved i:0xFE5AA30c i:0xFE5AA3FF
+reserved i:0xFE5AB30c i:0xFE5AB3FF
+reserved i:0xFE5AC000 i:0xFE5AFFFF
+reserved i:0xFE5B030c i:0xFE5B03FF
+reserved i:0xFE5B1000 i:0xFE5BFFFF
+
+
+//RCPM
+
+reserved v:0xFE0E2000 v:0xFE0E2003
+reserved v:0xFE0E2008 v:0xFE0E200B
+reserved v:0xFE0E2010 v:0xFE0E2013
+reserved v:0xFE0E2018 v:0xFE0E201B
+reserved v:0xFE0E2020 v:0xFE0E2023
+reserved v:0xFE0E2028 v:0xFE0E202B
+reserved v:0xFE0E2030 v:0xFE0E2033
+reserved v:0xFE0E2038 v:0xFE0E203B
+reserved v:0xFE0E203C v:0xFE0E203F
+reserved v:0xFE0E2044 v:0xFE0E204F
+reserved v:0xFE0E2054 v:0xFE0E2063
+reserved v:0xFE0E2080 v:0xFE0E2083
+reserved v:0xFE0E2088 v:0xFE0E208B
+reserved v:0xFE0E2090 v:0xFE0E2093
+
+reserved p:0xFE0E2000 p:0xFE0E2003
+reserved p:0xFE0E2008 p:0xFE0E200B
+reserved p:0xFE0E2010 p:0xFE0E2013
+reserved p:0xFE0E2018 p:0xFE0E201B
+reserved p:0xFE0E2020 p:0xFE0E2023
+reserved p:0xFE0E2028 p:0xFE0E202B
+reserved p:0xFE0E2030 p:0xFE0E2033
+reserved p:0xFE0E2038 p:0xFE0E203B
+reserved p:0xFE0E203C p:0xFE0E203F
+reserved p:0xFE0E2044 p:0xFE0E204F
+reserved p:0xFE0E2054 p:0xFE0E2063
+reserved p:0xFE0E2080 p:0xFE0E2083
+reserved p:0xFE0E2088 p:0xFE0E208B
+reserved p:0xFE0E2090 p:0xFE0E2093
+
+reserved i:0xFE0E2000 i:0xFE0E2003
+reserved i:0xFE0E2008 i:0xFE0E200B
+reserved i:0xFE0E2010 i:0xFE0E2013
+reserved i:0xFE0E2018 i:0xFE0E201B
+reserved i:0xFE0E2020 i:0xFE0E2023
+reserved i:0xFE0E2028 i:0xFE0E202B
+reserved i:0xFE0E2030 i:0xFE0E2033
+reserved i:0xFE0E2038 i:0xFE0E203B
+reserved i:0xFE0E203C i:0xFE0E203F
+reserved i:0xFE0E2044 i:0xFE0E204F
+reserved i:0xFE0E2054 i:0xFE0E2063
+reserved i:0xFE0E2080 i:0xFE0E2083
+reserved i:0xFE0E2088 i:0xFE0E208B
+reserved i:0xFE0E2090 i:0xFE0E2093
+

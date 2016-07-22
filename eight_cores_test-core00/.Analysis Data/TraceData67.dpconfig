@@ -1,0 +1,4040 @@
+<SAE>
+	<DataProducerInstance>
+		<SourceType>Nexus Trace</SourceType>
+		<TargetType>P4080 - Nexus Trace File</TargetType>
+		<ImplPlugin>
+			<Name>P4080 - Nexus Trace File</Name>
+			<PluginContractID>@freescale.com/fsl.components.sa.traceproducer.hwic;1</PluginContractID>
+			<ConfigurationName>Nexus Trace</ConfigurationName>
+			<WrapperFactory>sae.compluginwrapper</WrapperFactory>
+			<WrapperClass>DataProducerComWrapper</WrapperClass>
+			<Configuration>
+				<Name>Nexus Trace</Name>
+				<Version>1.0.0</Version>
+				<Comments>Trace Producer that uses a TraceProbe to collect data from a TraceTarget</Comments>
+				<ConfigBlock>
+					<Name>CodeWarrior</Name>
+					<StringAttribute>
+						<Name>Launch Configuration</Name>
+						<DefaultValue>eight_cores_test-core00_RAM_P4080_Download</DefaultValue>
+					</StringAttribute>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>General Config</Name>
+					<EnumAttribute>
+						<Name>Target Name</Name>
+						<DefaultValue>P4080</DefaultValue>
+						<EnumValues>Kinetis,HCS08,HCS08v3,Cfv1,PA,56xx,DSC,Any</EnumValues>
+					</EnumAttribute>
+					<FloatAttribute>
+						<Name>Open Location</Name>
+						<DefaultValue>0.0</DefaultValue>
+					</FloatAttribute>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>OnDemand Accessor</Name>
+					<BoolAttribute>
+						<Name>OnDemand Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<StringAttribute>
+						<Name>Factory Name</Name>
+						<DefaultValue>sae.dataaccessorplugins</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>XPCOM Factory Name</Name>
+						<DefaultValue>sae.dataaccessorplugins.xpcom</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Plugin Name</Name>
+						<DefaultValue>OnDemandTraceAccessor</DefaultValue>
+					</StringAttribute>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Target Endianess</Name>
+					<BoolAttribute>
+						<Name>Big Endian</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+				</ConfigBlock>
+			</Configuration>
+		</ImplPlugin>
+		<RequiresPlugin>
+			<Name>Trace Probe File - Nexus Trace</Name>
+			<PluginContractID>@freescale.com/fsl.components.sa.tracetool.file.nexus;1</PluginContractID>
+			<ConfigurationName>Nexus Raw Binary Trace</ConfigurationName>
+			<WrapperFactory>sae.compluginwrapper</WrapperFactory>
+			<WrapperClass>TraceProbe</WrapperClass>
+			<Configuration>
+				<Name>Nexus Raw Binary Trace</Name>
+				<Version>1.0.0</Version>
+				<Comments>File based TraceProbe setup to collect Nexus trace</Comments>
+				<ConfigBlock>
+					<Name>Input File</Name>
+					<StringAttribute>
+						<Name>Filename</Name>
+						<DefaultValue>$(BASE_PATH)/TraceData67.dat</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Trace Format</Name>
+						<DefaultValue>Binary Raw Trace</DefaultValue>
+					</StringAttribute>
+					<UInt32Attribute>
+						<Name>Index Frequency</Name>
+						<DefaultValue>16</DefaultValue>
+					</UInt32Attribute>
+					<BoolAttribute>
+						<Name>Frame Indexes</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+					<UInt64Attribute>
+						<Name>Max Read Memory Frames</Name>
+						<DefaultValue>4294967295</DefaultValue>
+					</UInt64Attribute>
+					<BoolAttribute>
+						<Name>Accurate Timestamps</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+				</ConfigBlock>
+			</Configuration>
+		</RequiresPlugin>
+		<RequiresPlugin>
+			<Name>P4080 Scripted Target</Name>
+			<Factory>sae.targetplugin.scripted.xpcom</Factory>
+			<Class>ScriptedTarget</Class>
+			<ConfigurationName>Nexus Trace</ConfigurationName>
+			<Configuration>
+				<Name>Nexus Trace</Name>
+				<Version>1.0.0</Version>
+				<Comments>P4080 target Nexus trace setup through a Python script</Comments>
+				<ConfigBlock>
+					<Name>Core0</Name>
+					<ConfigBlock>
+						<Name>ProgramTrace</Name>
+						<BoolAttribute>
+							<Name>Enable</Name>
+							<DefaultValue>false</DefaultValue>
+						</BoolAttribute>
+					</ConfigBlock>
+					<ConfigBlock>
+						<Name>DataTrace</Name>
+						<BoolAttribute>
+							<Name>Enable</Name>
+							<DefaultValue>false</DefaultValue>
+						</BoolAttribute>
+						<BoolAttribute>
+							<Name>Range</Name>
+							<DefaultValue>false</DefaultValue>
+						</BoolAttribute>
+						<Addr32Attribute>
+							<Name>Address1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>Address2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core1</Name>
+					<ConfigBlock>
+						<Name>ProgramTrace</Name>
+						<BoolAttribute>
+							<Name>Enable</Name>
+							<DefaultValue>false</DefaultValue>
+						</BoolAttribute>
+					</ConfigBlock>
+					<ConfigBlock>
+						<Name>DataTrace</Name>
+						<BoolAttribute>
+							<Name>Enable</Name>
+							<DefaultValue>false</DefaultValue>
+						</BoolAttribute>
+						<BoolAttribute>
+							<Name>Range</Name>
+							<DefaultValue>false</DefaultValue>
+						</BoolAttribute>
+						<Addr32Attribute>
+							<Name>Address1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>Address2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core2</Name>
+					<ConfigBlock>
+						<Name>ProgramTrace</Name>
+						<BoolAttribute>
+							<Name>Enable</Name>
+							<DefaultValue>false</DefaultValue>
+						</BoolAttribute>
+					</ConfigBlock>
+					<ConfigBlock>
+						<Name>DataTrace</Name>
+						<BoolAttribute>
+							<Name>Enable</Name>
+							<DefaultValue>false</DefaultValue>
+						</BoolAttribute>
+						<BoolAttribute>
+							<Name>Range</Name>
+							<DefaultValue>false</DefaultValue>
+						</BoolAttribute>
+						<Addr32Attribute>
+							<Name>Address1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>Address2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Python</Name>
+					<FileAttribute>
+						<Name>ScriptTemplate</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.target/scripts/NexusTraceP4080.pyt</DefaultValue>
+					</FileAttribute>
+					<FileAttribute>
+						<Name>GeneratedScript</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.target/scripts/NexusTraceP4080.py</DefaultValue>
+					</FileAttribute>
+				</ConfigBlock>
+			</Configuration>
+		</RequiresPlugin>
+		<RequiresPlugin>
+			<Name>Nexus Trace Decoder</Name>
+			<PluginContractID>@freescale.com/fsl.components.sa.tracedecoder.nexus.p4080;1</PluginContractID>
+			<ConfigurationName>Nexus Decoder</ConfigurationName>
+			<WrapperFactory>sae.compluginwrapper</WrapperFactory>
+			<WrapperClass>NexusDecoderP4080</WrapperClass>
+			<Configuration>
+				<Name>Nexus Decoder</Name>
+				<Version>1.0.0</Version>
+				<Comments>Nexus Decoder for the P4080</Comments>
+				<ConfigBlock>
+					<Name>Context Awareness</Name>
+					<ConfigBlock>
+						<Name>Linux</Name>
+						<ConfigBlock>
+							<Name>FS Info</Name>
+							<PathAttribute>
+								<Name>Target Filesystem</Name>
+								<DefaultValue></DefaultValue>
+							</PathAttribute>
+						</ConfigBlock>
+						<ConfigBlock>
+							<Name>Other Executables</Name>
+							<Mutable>true</Mutable>
+							<ConfigBlock>
+								<Name>Executable0</Name>
+								<FileAttribute>
+									<Name>ExecPath</Name>
+									<DefaultValue></DefaultValue>
+								</FileAttribute>
+							</ConfigBlock>
+						</ConfigBlock>
+						<ConfigBlock>
+							<Name>Audit Files</Name>
+							<Mutable>true</Mutable>
+							<FileAttribute>
+								<Name>path0</Name>
+								<DefaultValue></DefaultValue>
+							</FileAttribute>
+						</ConfigBlock>
+					</ConfigBlock>
+					<ConfigBlock>
+						<Name>Danix</Name>
+						<ConfigBlock>
+							<Name>FS Info</Name>
+							<PathAttribute>
+								<Name>Target Filesystem</Name>
+								<DefaultValue></DefaultValue>
+							</PathAttribute>
+						</ConfigBlock>
+						<ConfigBlock>
+							<Name>Other Executables</Name>
+							<Mutable>true</Mutable>
+							<ConfigBlock>
+								<Name>Executable0</Name>
+								<FileAttribute>
+									<Name>ExecPath</Name>
+									<DefaultValue></DefaultValue>
+								</FileAttribute>
+							</ConfigBlock>
+						</ConfigBlock>
+						<ConfigBlock>
+							<Name>Audit Files</Name>
+							<Mutable>true</Mutable>
+							<FileAttribute>
+								<Name>path0</Name>
+								<DefaultValue></DefaultValue>
+							</FileAttribute>
+						</ConfigBlock>
+					</ConfigBlock>
+					<ConfigBlock>
+						<Name>Bareboard</Name>
+						<ConfigBlock>
+							<Name>FS Info</Name>
+							<PathAttribute>
+								<Name>Target Filesystem</Name>
+								<DefaultValue></DefaultValue>
+							</PathAttribute>
+						</ConfigBlock>
+						<ConfigBlock>
+							<Name>Other Executables</Name>
+							<Mutable>true</Mutable>
+							<ConfigBlock>
+								<Name>Executable0</Name>
+								<FileAttribute>
+									<Name>ExecPath</Name>
+									<DefaultValue></DefaultValue>
+								</FileAttribute>
+							</ConfigBlock>
+						</ConfigBlock>
+						<ConfigBlock>
+							<Name>Audit Files</Name>
+							<Mutable>true</Mutable>
+							<FileAttribute>
+								<Name>path0</Name>
+								<DefaultValue></DefaultValue>
+							</FileAttribute>
+						</ConfigBlock>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 0</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(BASE_PATH)/TraceData67-0.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 1</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 10</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 11</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 12</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 13</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 14</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 15</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 16</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 17</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 18</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 19</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 2</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 20</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 21</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 22</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 23</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 3</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 4</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 5</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 6</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 7</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 8</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Core 9</Name>
+					<StringAttribute>
+						<Name>Context</Name>
+						<DefaultValue>Bareboard</DefaultValue>
+					</StringAttribute>
+					<StringAttribute>
+						<Name>Internal Core Name</Name>
+						<DefaultValue>E500mc</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FileAttribute>
+						<Name>Target Image</Name>
+						<DefaultValue>$(CW_SA_HOME)/../fsl.configs.sa.nexusdecoder/diag2.elf</DefaultValue>
+					</FileAttribute>
+					<Addr64Attribute>
+						<Name>DAC 1</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<Addr64Attribute>
+						<Name>DAC 2</Name>
+						<DefaultValue>0x0</DefaultValue>
+					</Addr64Attribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>Initial PC</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<BoolAttribute>
+						<Name>Trace Nexus PID Register</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Trace Predicate Instructions</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Start Program Trace From Auto Breakpoint</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<Addr64Attribute>
+						<Name>DQM PC Sync</Name>
+						<DefaultValue>0xffffffffffffffff</DefaultValue>
+					</Addr64Attribute>
+					<ConfigBlock>
+						<Name>SwTracepoints</Name>
+						<Addr32Attribute>
+							<Name>TpAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 1</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 2</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 3</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 4</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 5</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 6</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 7</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 8</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 9</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>TpAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+						<Addr32Attribute>
+							<Name>HashAddr 10</Name>
+							<DefaultValue>0x0</DefaultValue>
+						</Addr32Attribute>
+					</ConfigBlock>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>CoreNet Debug Client</Name>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>CAM Verbose Mode</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>DDR Debug Interface</Name>
+					<StringAttribute>
+						<Name>Version</Name>
+						<DefaultValue>3.0.1</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>DAM Verbose Mode</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>DataPath Debug Client</Name>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>DPQM Verbose Mode</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Event Processing Unit</Name>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Magenta Debug Interface</Name>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Nexus Concentrator</Name>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Nexus Port Controller</Name>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Ocean Debug Interface</Name>
+					<StringAttribute>
+						<Name>Version</Name>
+						<DefaultValue>2.0.1</DefaultValue>
+					</StringAttribute>
+					<BoolAttribute>
+						<Name>Enable Trace</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+					<FloatAttribute>
+						<Name>Clock Rate</Name>
+						<DefaultValue>0.0</DefaultValue>
+						<FloatRange>
+							<MinFloatValue>
+								<MinValue>0.0</MinValue>
+							</MinFloatValue>
+							<MaxFloatValue>
+								<MaxValue>500</MaxValue>
+							</MaxFloatValue>
+						</FloatRange>
+					</FloatAttribute>
+					<BoolAttribute>
+						<Name>Timestamps Enabled</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>Output Mode</Name>
+					<BoolAttribute>
+						<Name>Include Normal Events</Name>
+						<DefaultValue>true</DefaultValue>
+					</BoolAttribute>
+					<BoolAttribute>
+						<Name>Include Nexus Messages</Name>
+						<DefaultValue>false</DefaultValue>
+					</BoolAttribute>
+				</ConfigBlock>
+				<ConfigBlock>
+					<Name>SoC</Name>
+					<EnumAttribute>
+						<Name>Type</Name>
+						<DefaultValue>P4</DefaultValue>
+						<EnumValues>P4,T4</EnumValues>
+					</EnumAttribute>
+				</ConfigBlock>
+			</Configuration>
+		</RequiresPlugin>
+	</DataProducerInstance>
+</SAE>

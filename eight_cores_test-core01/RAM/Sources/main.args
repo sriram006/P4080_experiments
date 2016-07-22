@@ -1,0 +1,10 @@
+-O0
+-g
+-Wall
+-c
+-mbig-endian
+-fno-builtin
+-fomit-frame-pointer
+-Wno-unknown-pragmas
+-fdebug-unwind-tables
+-mcpu=e500mc
